@@ -33,10 +33,14 @@ namespace FPSRPGPrototype.Combat
             if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 1f, Utilities.LayersHelper.DefaultEnemyPlayer))
             {
                 Debug.Log("hit something");
-                IKillable killable = hit.collider.gameObject.GetComponent(typeof(IKillable)) as IKillable;
+                // looks to be hitting the child cylindar
+                IKillable killable = hit.collider.gameObject.GetComponentInParent(typeof(IKillable)) as IKillable;
+
+                Debug.Log(hit.collider.gameObject.name);
 
                 if (killable != null)
                 {
+                    Debug.Log("in killable!!!");
                     killable.Attack(new AttackInformation(damage, hit.point, true, attackSource));
                 }
 

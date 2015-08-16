@@ -168,6 +168,7 @@ namespace FPSRPGPrototype.BaseClasses
             //SoundController.Play("hit_player");
             int damage = defense.CalculateFinalDamage(attackInformation.damage);
             //HitTime = Time.time;
+            Debug.Log("in Attack() on Player");
             Health -= damage;
 
         }
