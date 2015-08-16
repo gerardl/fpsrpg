@@ -5,6 +5,7 @@ using System.Text;
 
 namespace FPSRPGPrototype.Items
 {
+    [Serializable]
     public class PotionItem : BaseClasses.Item
     {
         public enum PotionTypes

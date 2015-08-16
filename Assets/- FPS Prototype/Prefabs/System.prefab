@@ -58,7 +58,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5030d5e15903170429f0519f893c8add, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rangedWeapons: []
+  questItems: []
+  meleeWeapons: []
+  rangedWeapons:
+  - id: 1
+    name: test
+    rarity: 1
+    description: test3333
+    itemType: 5
+    model: {fileID: 0}
+    projectile: {fileID: 0}
+    mana: 0
+  wearables: []
+  potions: []
 --- !u!114 &11471008
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -142,7 +154,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: rangedWeapons.Array.data[0].rarity
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 150914}

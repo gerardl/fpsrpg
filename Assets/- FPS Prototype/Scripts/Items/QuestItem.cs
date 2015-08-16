@@ -5,6 +5,7 @@ using System.Text;
 
 namespace FPSRPGPrototype.Items
 {
+    [Serializable]
     public class QuestItem : BaseClasses.Item
     {
 

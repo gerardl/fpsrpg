@@ -5,6 +5,7 @@ using System.Text;
 
 namespace FPSRPGPrototype.Items
 {
+    [Serializable]
     public class WearableItem : BaseClasses.Item
     {
         // get reference to player somehow?
