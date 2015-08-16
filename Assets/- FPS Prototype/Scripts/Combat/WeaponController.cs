@@ -32,6 +32,7 @@ namespace FPSRPGPrototype.Combat
             var playerPosition = player.fpsCamera.transform.position;
             playerPosition.x += 1;
             playerPosition.y += 1;
+            //playerPosition.z += 1;
 
             Instantiate(tempRangedWeapon.projectile, playerPosition, player.fpsCamera.transform.rotation);
 
