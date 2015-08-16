@@ -12,7 +12,7 @@ namespace FPSRPGPrototype.Combat
         public int maxPhysical = 1;
         public int fire = 0;
         public int ice = 0;
-        public int electro = 0;
+        public int electric = 0;
 
         public DamageConfig Copy()
         {
@@ -21,7 +21,7 @@ namespace FPSRPGPrototype.Combat
             newConfig.maxPhysical = this.maxPhysical;
             newConfig.fire = this.fire;
             newConfig.ice = this.ice;
-            newConfig.electro = this.electro;
+            newConfig.electric = this.electric;
             return newConfig;
         }
     }
