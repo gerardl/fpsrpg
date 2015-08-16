@@ -9,7 +9,7 @@ namespace FPSRPGPrototype.Interfaces
     {
         Use,
         Read,
-        Take,
+        Take
     }
 
     // For all objects that can be used by pressing E

@@ -4,15 +4,26 @@ using UnityEngine;
 
 namespace FPSRPGPrototype.Items
 {
-    public class Drop : MonoBehaviour, Interfaces.IInteractive
+    public class Drop : MonoBehaviour, IInteractive
     {
         public string itemId = "";
         public SpriteRenderer spriteRenderer;
         private BaseClasses.Item item;
 
-        public string Name { get { return item.name; } }
-        public bool IsActive { get { return true; } }
-        public Actions Action { get { return Actions.Take; } }
+        public string Name
+        {
+            get { return item.name; }
+        }
+
+        public bool IsActive
+        {
+            get { return true; }
+        }
+
+        public Actions Action
+        {
+            get { return Actions.Take; }
+        }
 
         public void Use()
         {
