@@ -188,8 +188,6 @@ namespace FPSRPGPrototype.BaseClasses
             fpsController.enabled = true;
             weaponController.enabled = true;
 
-            Debug.Log(fpsController.enabled.ToString());
-
             Debug.Log("completed network initilization");
         }
 

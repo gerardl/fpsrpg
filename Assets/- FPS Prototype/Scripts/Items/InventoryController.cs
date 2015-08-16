@@ -24,6 +24,18 @@ namespace FPSRPGPrototype.Items
             items = new List<Item>(new Item[slotCount]);
         }
 
+        void Update()
+        {
+            if (System.GameController.Instance.GameState == System.GameStates.Game)
+            {
+                if (System.InputController.Item1) UseItem(0);
+                if (System.InputController.Item2) UseItem(1);
+                if (System.InputController.Item3) UseItem(2);
+                if (System.InputController.Item4) UseItem(3);
+                if (System.InputController.Item5) UseItem(4);
+                if (System.InputController.Item6) UseItem(5);
+            }
+        }
 
 
         public bool AddItem(Item item)
