@@ -4,8 +4,6 @@ namespace FPSRPGPrototype.System
 {
     public class InputController : MonoBehaviour
     {
-        public float mouseSensitivity = 10f;
-
         public static float ForwardBack { get; private set; }
         public static float LeftRight { get; private set; }
         public static float Horizontal { get; private set; }
@@ -42,8 +40,8 @@ namespace FPSRPGPrototype.System
             if (Input.GetKey(KeyCode.S)) ForwardBack = -1;
             if (Input.GetKey(KeyCode.A)) LeftRight = -1;
             if (Input.GetKey(KeyCode.D)) LeftRight = 1;
-            Horizontal = Input.GetAxis("Mouse X") * mouseSensitivity;
-            Vertical = -Input.GetAxis("Mouse Y") * mouseSensitivity;
+            //Horizontal = Input.GetAxis("Mouse X") * mouseSensitivity;
+            //Vertical = -Input.GetAxis("Mouse Y") * mouseSensitivity;
 
             use = Input.GetKeyDown(KeyCode.E);
             Weapon = Input.GetKey(KeyCode.Mouse0);

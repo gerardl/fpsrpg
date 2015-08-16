@@ -5,6 +5,9 @@ namespace FPSRPGPrototype.Networking
 {
     public class PlayerInitilization : NetworkBehaviour
     {
+        BaseClasses.Player player;
+
+
         void Start()
         {
             if (isLocalPlayer)
@@ -15,10 +18,13 @@ namespace FPSRPGPrototype.Networking
 
         void AttachPlayerScripts()
         {
-            var player = GetComponent<BaseClasses.Player>();
+            player = GetComponent<BaseClasses.Player>();
 
-            player.enabled = true;
-            player.NetworkInitialize();
+            if (player != null)
+            {
+                player.enabled = true;
+                player.NetworkInitialize();
+            }
         }
     }
 }

@@ -108,25 +108,25 @@ namespace FPSRPGPrototype.BaseClasses
         // Update is called once per frame
         void Update()
         {
-            //if (GameController.Instance.GameState != GameStates.Game) return;
-            
+            if (GameController.Instance.GameState != GameStates.Game) return;
+
             // Search for interactive objects
-            //InteractiveObject = null;
-            
-            //RaycastHit hit;
+            InteractiveObject = null;
 
-            //if (Physics.Raycast(fpsCamera.transform.position, fpsCamera.transform.TransformDirection(Vector3.forward), out hit, 4))
-            //{
-            //    InteractiveObject = hit.collider.gameObject.GetComponent(typeof(IInteractive)) as IInteractive;
+            RaycastHit hit;
 
-            //    if (InteractiveObject != null && InteractiveObject.IsActive == false)
-            //        InteractiveObject = null;
-            //}
+            if (Physics.Raycast(fpsCamera.transform.position, fpsCamera.transform.TransformDirection(Vector3.forward), out hit, 4))
+            {
+                InteractiveObject = hit.collider.gameObject.GetComponent(typeof(IInteractive)) as IInteractive;
 
-            //if ((InteractiveObject != null) && (InputController.Use))
-            //{
-            //    InteractiveObject.Use();
-            //}
+                if (InteractiveObject != null && InteractiveObject.IsActive == false)
+                    InteractiveObject = null;
+            }
+
+            if ((InteractiveObject != null) && (InputController.Use))
+            {
+                InteractiveObject.Use();
+            }
 
             // Mana regeneration;
             //if (Time.time - manaRegenerationTime > baseManaRegeenrationDeleay - (baseManaRegeenrationDeleay * 0.05 * experience.Mind))
