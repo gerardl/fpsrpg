@@ -26,6 +26,7 @@ namespace FPSRPGPrototype.BaseClasses
         public CharacterController characterController;
         public Combat.DefenseConfig defense;
         public Combat.WeaponController weaponController;
+        public Items.InventoryController inventoryController;
         public UnityStandardAssets.Characters.FirstPerson.FirstPersonController fpsController;
         public Camera fpsCamera;
         public AudioListener fpsCameraAudioListender;

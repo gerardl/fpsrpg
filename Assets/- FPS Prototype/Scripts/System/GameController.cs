@@ -41,7 +41,7 @@ namespace FPSRPGPrototype.System
 
         private void OnStateChanged(GameStates state)
         {
-            Time.timeScale = state == GameStates.Pause || state == GameStates.Inventory ? 0 : 1;
+            //Time.timeScale = state == GameStates.Pause || state == GameStates.Inventory ? 0 : 1;
         }
 
         void Update()

@@ -61,7 +61,7 @@ MonoBehaviour:
   questItems: []
   meleeWeapons: []
   rangedWeapons:
-  - id: 1
+  - id: rw_test_1
     name: test
     rarity: 1
     description: test3333
@@ -89,7 +89,7 @@ MonoBehaviour:
   m_SendPeerInfo: 0
   m_MaxDelay: .00999999978
   m_LogLevel: 2
-  m_PlayerPrefab: {fileID: 100000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
+  m_PlayerPrefab: {fileID: 126378, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
   m_AutoCreatePlayer: 1
   m_PlayerSpawnMethod: 0
   m_OfflineScene: 
