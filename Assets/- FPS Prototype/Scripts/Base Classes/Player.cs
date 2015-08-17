@@ -2,11 +2,11 @@
 using System;
 using FPSRPGPrototype.System;
 using FPSRPGPrototype.Interfaces;
-using FPSRPGPrototype.Utilities;
+using UnityEngine.Networking;
 
 namespace FPSRPGPrototype.BaseClasses
 {
-    public class Player : MonoBehaviour, IKillable, INetworkable
+    public class Player : NetworkBehaviour, IKillable, INetworkable
     {
         #region Properties
 
@@ -18,9 +18,13 @@ namespace FPSRPGPrototype.BaseClasses
         public float speed = 10f;
         public float rotationSpeed = 10f;
 
+        [SyncVar]
         private int maxHealth;
+        [SyncVar]
         private int maxMana;
+        [SyncVar]
         private int health;
+        [SyncVar]
         private int mana;
 
         public CharacterController characterController;
@@ -170,7 +174,7 @@ namespace FPSRPGPrototype.BaseClasses
             int damage = defense.CalculateFinalDamage(attackInformation.damage);
             //HitTime = Time.time;
             Debug.Log("in Attack() on Player");
-            Health -= damage;
+            health -= damage;
 
         }
 
