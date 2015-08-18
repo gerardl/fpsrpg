@@ -63,14 +63,12 @@ namespace FPSRPGPrototype.Combat
             }
         }
 
-        //client asks to shoot a bullet
         [Command]
         private void CmdShootProjectile()
         {
             RpcShootProjectile();
         }
 
-        // server responds and does it, as this is marked clientRpc
         [ClientRpc]
         private void RpcShootProjectile()
         {

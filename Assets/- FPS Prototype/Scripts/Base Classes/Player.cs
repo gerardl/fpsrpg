@@ -98,22 +98,24 @@ namespace FPSRPGPrototype.BaseClasses
 
         void Awake()
         {
-            // need to replace with persisted health (obv ;))
+            //need to replace with persisted health (obv ;))
             maxHealth = testingHealth;
             health = testingHealth;
             maxMana = testingHealth;
             mana = testingMana;
 
-           characterController = GetComponent<CharacterController>();
+            characterController = GetComponent<CharacterController>();
 
             if (characterController != null)
                 Debug.Log("found character");
         }
-
-
+        
         // temp 
         void OnGUI()
         {
+            if (!isLocalPlayer)
+                return;
+            
             // temp: draw a crosshair.
             GUI.Box(new Rect(Screen.width / 2, Screen.height / 2, 10, 10), "");
 
@@ -175,6 +177,7 @@ namespace FPSRPGPrototype.BaseClasses
             Debug.Log("I'm dead now");
             Debug.Log("I'm dead now");
         }
+
 
         public void Attack(Combat.AttackInformation attackInformation)
         {
