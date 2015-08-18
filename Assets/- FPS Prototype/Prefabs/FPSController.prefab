@@ -35,6 +35,7 @@ GameObject:
   - 114: {fileID: 11456498}
   - 114: {fileID: 11406854}
   - 114: {fileID: 11434574}
+  - 136: {fileID: 13645628}
   m_Layer: 0
   m_Name: FPSController
   m_TagString: Untagged
@@ -51,7 +52,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 461662}
   - 33: {fileID: 3370620}
-  - 136: {fileID: 13652698}
   - 23: {fileID: 2320566}
   m_Layer: 0
   m_Name: Capsule
@@ -314,7 +314,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_TransformSyncMode: 1
-  m_SendInterval: .0833333358
+  m_SendInterval: .0384615399
   m_SyncRotationAxis: 7
   m_RotationSyncCompression: 0
   m_SyncSpin: 0
@@ -474,7 +474,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 126378}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 86de1b9e9b3a50540b029c0c5d160b8d, type: 3}
   m_Name: 
@@ -495,17 +495,17 @@ MonoBehaviour:
   fpsCamera: {fileID: 2040628}
   fpsCameraAudioListender: {fileID: 8131808}
   audioSource: {fileID: 8269346}
---- !u!136 &13652698
+--- !u!136 &13645628
 CapsuleCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 156234}
+  m_GameObject: {fileID: 126378}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: .5
-  m_Height: 2
+  m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!143 &14394558
@@ -516,7 +516,7 @@ CharacterController:
   m_GameObject: {fileID: 126378}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Height: 1.79999995
   m_Radius: .5
@@ -542,7 +542,7 @@ Prefab:
       objectReference: {fileID: 14394558}
     - target: {fileID: 0}
       propertyPath: m_SendInterval
-      value: .0833333358
+      value: .0384615399
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_InterpolateRotation
@@ -550,6 +550,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_TransformSyncMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

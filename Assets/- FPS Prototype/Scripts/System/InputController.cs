@@ -32,6 +32,16 @@ namespace FPSRPGPrototype.System
             }
         }
 
+        void Awake()
+        {
+            /* Ensure that the cursor is locked into the screen */
+            if (Cursor.lockState != CursorLockMode.Locked)
+            {
+                if (Input.GetMouseButtonDown(0))
+                    Cursor.lockState = CursorLockMode.Locked;
+            }
+        }
+
         void Update()
         {
             ForwardBack = 0;

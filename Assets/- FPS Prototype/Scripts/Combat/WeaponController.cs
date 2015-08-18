@@ -26,7 +26,8 @@ namespace FPSRPGPrototype.Combat
 
             //if (GameController.Instance.GameState != GameStates.Game) return;
             //animator.SetBool("IsAttack", System.InputController.Weapon);
-            if (System.InputController.Weapon) OnAttack();
+            if (System.InputController.Weapon) //OnAttack();
+                CmdShootProjectile();
         }
 
         // by the animation event
@@ -52,7 +53,7 @@ namespace FPSRPGPrototype.Combat
                     var rangedWeapon = (Items.WeaponItemRanged)weapon;
 
                     Instantiate(rangedWeapon.projectile, player.fpsCamera.transform.position, player.fpsCamera.transform.rotation);
-                    player.Mana -= rangedWeapon.mana;
+                    //player.Mana -= rangedWeapon.mana;
 
                     break;
                 case BaseClasses.Item.ItemTypes.Wearable:
@@ -73,7 +74,8 @@ namespace FPSRPGPrototype.Combat
         [ClientRpc]
         private void RpcShootProjectile()
         {
-            var playerPosition = player.fpsCamera.transform.position;
+            //var playerPosition = player.fpsCamera.transform.position;
+            var playerPosition = player.gameObject.transform.position;
             playerPosition.x += 1;
             playerPosition.y += 1;
             //playerPosition.z += 1;

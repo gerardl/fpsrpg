@@ -7,22 +7,28 @@ namespace FPSRPGPrototype.Networking
     {
         BaseClasses.Player player;
 
-
-        void Start()
+        public override void OnStartLocalPlayer()
         {
-            if (isLocalPlayer)
-            {
-                AttachPlayerScripts();
-            }
+            AttachPlayerScripts();
         }
+        //void Start()
+        //{
+        //    if (isLocalPlayer)
+        //    {
+        //        AttachPlayerScripts();
+        //    }
+        //}
 
         void AttachPlayerScripts()
         {
+            Debug.Log("in AttachPlayerScripts");
+            
             player = GetComponent<BaseClasses.Player>();
 
             if (player != null)
             {
-                player.enabled = true;
+                //player.enabled = true;
+                player.name = "im networkz";
                 player.NetworkInitialize();
             }
         }

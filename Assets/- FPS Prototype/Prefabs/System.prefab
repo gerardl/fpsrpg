@@ -159,6 +159,10 @@ Prefab:
       propertyPath: rangedWeapons.Array.data[0].rarity
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_PlayerPrefab
+      value: 
+      objectReference: {fileID: 126378, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 150914}

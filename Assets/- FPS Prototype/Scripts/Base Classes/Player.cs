@@ -10,6 +10,7 @@ namespace FPSRPGPrototype.BaseClasses
     {
         #region Properties
 
+        [SyncVar]
         public string playerName;
 
         public int testingHealth = 100;
@@ -38,57 +39,62 @@ namespace FPSRPGPrototype.BaseClasses
 
         public IInteractive InteractiveObject { get; private set; }
 
-        public int MaxHealth
-        {
-            get { return maxHealth; }
-            set
-            {
-                maxHealth = value;
+        //public int MaxHealth
+        //{
+        //    get { return maxHealth; }
+        //    set
+        //    {
+        //        maxHealth = value;
 
-                if (Health > MaxHealth)
-                    Health = MaxHealth;
-            }
-        }
+        //        if (Health > MaxHealth)
+        //            Health = MaxHealth;
+        //    }
+        //}
 
-        public int MaxMana
-        {
-            get { return maxMana; }
-            set
-            {
-                maxMana = value;
+        //public int MaxMana
+        //{
+        //    get { return maxMana; }
+        //    set
+        //    {
+        //        maxMana = value;
 
-                if (Mana > MaxMana)
-                    Mana = MaxMana;
-            }
-        }
+        //        if (Mana > MaxMana)
+        //            Mana = MaxMana;
+        //    }
+        //}
 
-        public int Health
-        {
-            get { return health; }
-            set
-            {
-                health = Mathf.Clamp(value, 0, maxHealth);
+        //public int Health
+        //{
+        //    get { return health; }
+        //    set
+        //    {
+        //        health = Mathf.Clamp(value, 0, maxHealth);
 
-                if (health == 0)
-                {
-                    KillPlayer();
-                }
+        //        if (health == 0)
+        //        {
+        //            KillPlayer();
+        //        }
 
-            }
-        }
+        //    }
+        //}
 
-        public int Mana
-        {
-            get { return mana; }
-            set
-            {
-                mana = Mathf.Clamp(value, 0, maxMana);
-            }
-        }
+        //public int Mana
+        //{
+        //    get { return mana; }
+        //    set
+        //    {
+        //        mana = Mathf.Clamp(value, 0, maxMana);
+        //    }
+        //}
 
         #endregion
 
         #region Unity Methods
+
+        public override void OnStartLocalPlayer()
+        {
+            this.NetworkInitialize();
+        }
 
         void Awake()
         {
@@ -113,7 +119,11 @@ namespace FPSRPGPrototype.BaseClasses
         // Update is called once per frame
         void Update()
         {
-            if (GameController.Instance.GameState != GameStates.Game) return;
+            if (!isLocalPlayer)
+                return;
+
+            if (GameController.Instance.GameState != GameStates.Game)
+                return;
 
             // Search for interactive objects
             InteractiveObject = null;
@@ -166,16 +176,32 @@ namespace FPSRPGPrototype.BaseClasses
         private void KillPlayer()
         {
             Debug.Log("I'm dead now");
+            Debug.Log("I'm dead now");
+            Debug.Log("I'm dead now");
+            Debug.Log("I'm dead now");
+            Debug.Log("I'm dead now");
+            characterController.SimpleMove(new Vector3(200, 200, 200));
         }
 
         public void Attack(Combat.AttackInformation attackInformation)
         {
+            //if (!isServer)
+            //    return;
+            
             //SoundController.Play("hit_player");
             int damage = defense.CalculateFinalDamage(attackInformation.damage);
             //HitTime = Time.time;
             Debug.Log("in Attack() on Player");
+            // I can't use the property here, because apparently it will not get marked
+            // as dirty.  Seems maybe I can't use properties much because of this?
             health -= damage;
 
+            health = Mathf.Clamp(health, 0, maxHealth);
+
+            if (health == 0)
+            {
+                KillPlayer();
+            }
         }
 
         public void Kill()
@@ -186,12 +212,13 @@ namespace FPSRPGPrototype.BaseClasses
         public void NetworkInitialize()
         {
             Debug.Log("begin initilization");
-
-            characterController.enabled = true;
+            this.name = "in network init";
+            this.playerName = "test in init";
+            //characterController.enabled = true;
             fpsCamera.enabled = true;
             fpsCameraAudioListender.enabled = true;
             fpsController.enabled = true;
-            weaponController.enabled = true;
+            //weaponController.enabled = true;
 
             Debug.Log("completed network initilization");
         }
