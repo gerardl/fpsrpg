@@ -36,7 +36,7 @@ namespace FPSRPGPrototype.System
 
         void Start()
         {
-            GameState = GameStates.Pause;
+            GameState = GameStates.Game;
         }
 
         private void OnStateChanged(GameStates state)
@@ -46,29 +46,29 @@ namespace FPSRPGPrototype.System
 
         void Update()
         {
-            if (InputController.Escape)
-            {
-                if (GameState == GameStates.Game)
-                {
-                    GameState = GameStates.Pause;
-                }
-                else if (GameState == GameStates.Pause)
-                {
-                    GameState = GameStates.Game;
-                }
-            }
+            //if (InputController.Escape)
+            //{
+            //    if (GameState == GameStates.Game)
+            //    {
+            //        GameState = GameStates.Pause;
+            //    }
+            //    else if (GameState == GameStates.Pause)
+            //    {
+            //        GameState = GameStates.Game;
+            //    }
+            //}
 
-            if (InputController.Inventory)
-            {
-                if (GameState == GameStates.Game)
-                {
-                    GameState = GameStates.Inventory;
-                }
-                else if (GameState == GameStates.Inventory)
-                {
-                    GameState = GameStates.Game;
-                }
-            }
+            //if (InputController.Inventory)
+            //{
+            //    if (GameState == GameStates.Game)
+            //    {
+            //        GameState = GameStates.Inventory;
+            //    }
+            //    else if (GameState == GameStates.Inventory)
+            //    {
+            //        GameState = GameStates.Game;
+            //    }
+            //}
         }
 
         public void RestartGame()

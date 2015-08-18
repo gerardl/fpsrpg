@@ -34,13 +34,8 @@ namespace FPSRPGPrototype.System
 
         void Awake()
         {
-            /* Ensure that the cursor is locked into the screen */
-            if (Cursor.lockState != CursorLockMode.Locked)
-            {
-                if (Input.GetMouseButtonDown(0))
-                    Cursor.lockState = CursorLockMode.Locked;
-            }
         }
+        
 
         void Update()
         {
@@ -64,6 +59,17 @@ namespace FPSRPGPrototype.System
             Item4 = Input.GetKeyDown(KeyCode.Alpha4);
             Item5 = Input.GetKeyDown(KeyCode.Alpha5);
             Item6 = Input.GetKeyDown(KeyCode.Alpha6);
+
+            if (GameController.Instance.GameState == GameStates.Game)
+            {
+                Cursor.visible = false;
+                Cursor.lockState = CursorLockMode.Confined;
+            }
+            else
+            {
+                Cursor.visible = true;
+                Cursor.lockState = CursorLockMode.None;
+            }
         }
     }
 }

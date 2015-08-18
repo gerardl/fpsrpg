@@ -110,6 +110,18 @@ namespace FPSRPGPrototype.BaseClasses
                 Debug.Log("found character");
         }
 
+
+        // temp 
+        void OnGUI()
+        {
+            // temp: draw a crosshair.
+            GUI.Box(new Rect(Screen.width / 2, Screen.height / 2, 10, 10), "");
+
+            // temp: hp bar
+            GUI.Box(new Rect(20, 20, 20, 20), health.ToString());
+        }
+
+
         // Use this for initialization
         void Start()
         {
@@ -155,24 +167,6 @@ namespace FPSRPGPrototype.BaseClasses
 
         #region Class Methods
 
-        // originally from unity, can't find the link, is here as well as a few other spots:
-        //https://github.com/kurilchenko/1look/blob/master/Assets/Scripts/MouseLook.cs
-        private Quaternion ClampRotationAroundXAxis(Quaternion q)
-        {
-            q.x /= q.w;
-            q.y /= q.w;
-            q.z /= q.w;
-            q.w = 1.0f;
-
-            float angleX = 2.0f * Mathf.Rad2Deg * Mathf.Atan(q.x);
-
-            angleX = Mathf.Clamp(angleX, -75, 75);
-
-            q.x = Mathf.Tan(0.5f * Mathf.Deg2Rad * angleX);
-
-            return q;
-        }
-
         private void KillPlayer()
         {
             Debug.Log("I'm dead now");
@@ -180,14 +174,13 @@ namespace FPSRPGPrototype.BaseClasses
             Debug.Log("I'm dead now");
             Debug.Log("I'm dead now");
             Debug.Log("I'm dead now");
-            characterController.SimpleMove(new Vector3(200, 200, 200));
         }
 
         public void Attack(Combat.AttackInformation attackInformation)
         {
-            //if (!isServer)
-            //    return;
-            
+            if (!isServer)
+                return;
+
             //SoundController.Play("hit_player");
             int damage = defense.CalculateFinalDamage(attackInformation.damage);
             //HitTime = Time.time;
