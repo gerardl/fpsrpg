@@ -118,7 +118,7 @@ namespace FPSRPGPrototype.BaseClasses
             GUI.Box(new Rect(Screen.width / 2, Screen.height / 2, 10, 10), "");
 
             // temp: hp bar
-            GUI.Box(new Rect(20, 20, 20, 20), health.ToString());
+            GUI.Box(new Rect(20, 20, 100, 20), "hp: " + health.ToString() + " / " + maxHealth.ToString());
         }
 
 

@@ -9,7 +9,7 @@ namespace FPSRPGPrototype.Networking
 
         public override void OnStartLocalPlayer()
         {
-            AttachPlayerScripts();
+            //AttachPlayerScripts();
         }
         //void Start()
         //{
