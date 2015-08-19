@@ -13,6 +13,9 @@ namespace FPSRPGPrototype.Combat
         private GameObject weaponModel;
         private System.InputController inputController;
 
+        public float castDelay = 1f;
+        private float lastCast;
+
         void Awake()
         {
             animator = GetComponent<Animator>();
@@ -26,8 +29,13 @@ namespace FPSRPGPrototype.Combat
 
             //if (GameController.Instance.GameState != GameStates.Game) return;
             //animator.SetBool("IsAttack", System.InputController.Weapon);
-            if (System.InputController.Weapon) //OnAttack();
+            if (System.InputController.Weapon && Time.time >= lastCast)
+            {
+                lastCast = Time.time + castDelay;
                 CmdShootProjectile();
+            }
+            //OnAttack();
+                
         }
 
         // by the animation event
@@ -79,6 +87,7 @@ namespace FPSRPGPrototype.Combat
             //playerPosition.z += 1;
 
             Instantiate(tempRangedWeapon.projectile, playerPosition, player.fpsCamera.transform.rotation);
+            
         }
     }
 }

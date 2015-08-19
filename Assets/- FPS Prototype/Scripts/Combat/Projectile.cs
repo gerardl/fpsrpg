@@ -11,20 +11,35 @@ namespace FPSRPGPrototype.Combat
         public float speed = 10;
         public GameObject corpse;
         public AttackInformation.AttackSources attackSource;
+        public Rigidbody rigidbody;
+
+        void Awake()
+        {
+            Collider c = GetComponent<Collider>();
+            rigidbody = GetComponent<Rigidbody>();
+
+            c.material.frictionCombine = PhysicMaterialCombine.Minimum;
+            c.material.dynamicFriction = 0.0f;
+            c.material.staticFriction = 0.0f;
+            rigidbody.useGravity = false;
+        }
 
         void Start()
         {
-            Destroy(gameObject, 5f);
+            //Destroy(gameObject, 5f);
         }
 
         void Update()
         {
             Move();
-            CheckHit();
+            //CheckHit();
         }
 
         protected virtual void Move()
         {
+            //rigidbody.isKinematic = false;
+            //rigidbody.velocity = Vector3.zero;
+            //rigidbody.AddForce(Vector3.forward * speed * Time.deltaTime, ForceMode.VelocityChange);
             transform.Translate(Vector3.forward * speed * Time.deltaTime, Space.Self);
         }
 
@@ -76,6 +91,7 @@ namespace FPSRPGPrototype.Combat
         protected virtual void DestroyProjectile()
         {
             if (corpse != null) Instantiate(corpse, transform.position, Quaternion.identity);
+            Debug.Log("in destroy");
             Destroy(this.gameObject);
         }
     }
