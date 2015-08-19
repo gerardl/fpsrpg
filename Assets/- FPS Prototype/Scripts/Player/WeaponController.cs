@@ -80,13 +80,13 @@ namespace FPSRPGPrototype.Player
         [ClientRpc]
         private void RpcShootProjectile()
         {
-            //var playerPosition = player.fpsCamera.transform.position;
-            var playerPosition = player.gameObject.transform.position;
-            playerPosition.x += 1;
-            playerPosition.y += 1;
+            var playerPosition = player.fpsCamera.transform.position;
+            //var playerPosition = player.gameObject.transform.position;
+            //playerPosition.x += 1;
+            //playerPosition.y += 1;
             //playerPosition.z += 1;
-
-            Instantiate(tempRangedWeapon.projectile, playerPosition, player.fpsCamera.transform.rotation);
+            
+            Instantiate(tempRangedWeapon.projectile, weaponHand.transform.position, player.fpsCamera.transform.rotation);
         }
     }
 }
