@@ -25,24 +25,24 @@ namespace FPSRPGPrototype.Items
         {
             get { return Actions.Take; }
         }
+        
+        //[ClientRpc]
+        //private void RpcPickUpDrop()
+        //{
+        //    Debug.Log("Tried To use this");
+        //    Destroy(gameObject);
+        //}
 
-        [Command]
-        private void CmdPickUpDrop()
+        public void Interact(BaseClasses.Player player)
         {
-            RpcPickUpDrop();
+            Use(player);
         }
 
-        [ClientRpc]
-        private void RpcPickUpDrop()
+        public void Use(BaseClasses.Player player)
         {
-            Debug.Log("Tried To use this");
-            Destroy(gameObject);
-        }
-
-
-        public void Use()
-        {
-            CmdPickUpDrop();
+            //if (!isLocalPlayer)
+            //    return;
+            player.Use(this.gameObject);
         }
     }
 }

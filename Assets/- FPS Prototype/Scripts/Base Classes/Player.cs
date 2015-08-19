@@ -114,7 +114,7 @@ namespace FPSRPGPrototype.BaseClasses
 
             if ((InteractiveObject != null) && (InputController.Use))
             {
-                InteractiveObject.Use();
+                InteractiveObject.Interact(this);
             }
 
             // Mana regeneration;
@@ -163,6 +163,18 @@ namespace FPSRPGPrototype.BaseClasses
         public void Kill()
         {
             throw new NotImplementedException();
+        }
+
+        public void Use(GameObject gameObject)
+        {
+            CmdPickUpDrop(gameObject);
+        }
+
+        [Command]
+        private void CmdPickUpDrop(GameObject gameObject)
+        {
+            Debug.Log("Tried To use this");
+            NetworkServer.Destroy(gameObject);
         }
 
         private void NetworkInitialize()

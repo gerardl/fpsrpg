@@ -19,6 +19,6 @@ namespace FPSRPGPrototype.Interfaces
         bool IsActive { get; }
         Actions Action { get; }
 
-        void Use();
+        void Interact(BaseClasses.Player player);
     }
 }

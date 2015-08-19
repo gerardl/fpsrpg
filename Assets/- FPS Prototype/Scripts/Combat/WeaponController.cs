@@ -13,7 +13,7 @@ namespace FPSRPGPrototype.Combat
         private GameObject weaponModel;
         private System.InputController inputController;
 
-        public float castDelay = 1f;
+        public float castDelay = .66f;
         private float lastCast;
 
         void Awake()
