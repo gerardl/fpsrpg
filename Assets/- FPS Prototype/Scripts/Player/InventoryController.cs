@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using FPSRPGPrototype.BaseClasses;
 using UnityEngine;
 
-namespace FPSRPGPrototype.Items
+namespace FPSRPGPrototype.Player
 {
     public class InventoryController
     {
-        public event Action<WeaponItem> onEquipWeapon;
+        public event Action<Items.WeaponItem> onEquipWeapon;
         //public event Action<WeaponItem> onEquipWearable;
 
         private List<Item> items;

@@ -33,12 +33,12 @@ namespace FPSRPGPrototype.Items
         //    Destroy(gameObject);
         //}
 
-        public void Interact(BaseClasses.Player player)
+        public void Interact(Player.PlayerController player)
         {
             Use(player);
         }
 
-        public void Use(BaseClasses.Player player)
+        public void Use(Player.PlayerController player)
         {
             //if (!isLocalPlayer)
             //    return;

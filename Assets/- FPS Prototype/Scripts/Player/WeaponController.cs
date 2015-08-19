@@ -1,14 +1,14 @@
 ﻿using UnityEngine;
 using UnityEngine.Networking;
 
-namespace FPSRPGPrototype.Combat
+namespace FPSRPGPrototype.Player
 {
     public class WeaponController : NetworkBehaviour
     {
         public GameObject weaponHand;
         private Items.WeaponItem weapon;
         public Items.WeaponItemRanged tempRangedWeapon;
-        private BaseClasses.Player player;
+        private PlayerController player;
         private Animator animator;
         private GameObject weaponModel;
         private System.InputController inputController;
@@ -19,7 +19,7 @@ namespace FPSRPGPrototype.Combat
         void Awake()
         {
             animator = GetComponent<Animator>();
-            player = GetComponent<BaseClasses.Player>();
+            player = GetComponent<PlayerController>();
         }
 
         void Update()

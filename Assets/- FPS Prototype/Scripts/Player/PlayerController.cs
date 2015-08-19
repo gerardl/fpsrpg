@@ -4,9 +4,9 @@ using FPSRPGPrototype.System;
 using FPSRPGPrototype.Interfaces;
 using UnityEngine.Networking;
 
-namespace FPSRPGPrototype.BaseClasses
+namespace FPSRPGPrototype.Player
 {
-    public class Player : NetworkBehaviour, IKillable
+    public class PlayerController : NetworkBehaviour, IKillable
     {
         #region Properties
 
@@ -34,8 +34,8 @@ namespace FPSRPGPrototype.BaseClasses
 
         public CharacterController characterController;
         public Combat.DefenseConfig defense;
-        public Combat.WeaponController weaponController;
-        public Items.InventoryController inventoryController;
+        public WeaponController weaponController;
+        public InventoryController inventoryController;
         public UnityStandardAssets.Characters.FirstPerson.FirstPersonController fpsController;
         public Camera fpsCamera;
         public AudioListener fpsCameraAudioListender;
