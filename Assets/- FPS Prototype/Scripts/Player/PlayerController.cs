@@ -6,6 +6,11 @@ using UnityEngine.Networking;
 
 namespace FPSRPGPrototype.Player
 {
+    // Central location to control playable character.
+    // most functions run on the server from the client 
+    // are called through this or a child controller
+    //
+    // scripts in this folder are components on the player prefab
     public class PlayerController : NetworkBehaviour, IKillable
     {
         #region Properties
@@ -104,10 +109,6 @@ namespace FPSRPGPrototype.Player
             {
                 InteractiveObject = hit.collider.gameObject.GetComponent(typeof(IInteractive)) as IInteractive;
 
-                //temp
-                if (InteractiveObject != null)
-                    Debug.Log("I see something");
-
                 if (InteractiveObject != null && InteractiveObject.IsActive == false)
                     InteractiveObject = null;
             }
@@ -145,19 +146,14 @@ namespace FPSRPGPrototype.Player
                 return;
 
             //SoundController.Play("hit_player");
-            int damage = defense.CalculateFinalDamage(attackInformation.damage);
-            //HitTime = Time.time;
             Debug.Log("in Attack() on Player");
-            // I can't use the property here, because apparently it will not get marked
-            // as dirty.  Seems maybe I can't use properties much because of this?
-            health -= damage;
 
+            int damage = defense.CalculateFinalDamage(attackInformation.damage);
+            health -= damage;
             health = Mathf.Clamp(health, 0, maxHealth);
 
             if (health == 0)
-            {
                 KillPlayer();
-            }
         }
 
         public void Kill()

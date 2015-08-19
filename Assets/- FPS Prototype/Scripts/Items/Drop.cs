@@ -38,7 +38,7 @@ namespace FPSRPGPrototype.Items
             Use(player);
         }
 
-        public void Use(Player.PlayerController player)
+        private void Use(Player.PlayerController player)
         {
             //if (!isLocalPlayer)
             //    return;
