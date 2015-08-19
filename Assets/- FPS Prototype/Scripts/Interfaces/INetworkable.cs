@@ -12,7 +12,9 @@ namespace FPSRPGPrototype.Interfaces
        Ready = 3
     }
 
-    // For all objects that can be used by pressing E
+    // I'm not using this right now, I will implement
+    // more robust network code once we get further along, and once
+    // unet is out of beta.
     public interface INetworkable
     {
         //ConnectionStatuses connectionStatus { get; set; }

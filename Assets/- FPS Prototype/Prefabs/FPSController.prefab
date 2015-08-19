@@ -31,7 +31,6 @@ GameObject:
   - 114: {fileID: 11447194}
   - 114: {fileID: 11416004}
   - 114: {fileID: 11466406}
-  - 114: {fileID: 11456498}
   - 114: {fileID: 11406854}
   - 114: {fileID: 11434574}
   - 136: {fileID: 13645628}
@@ -286,6 +285,7 @@ MonoBehaviour:
     model: {fileID: 100000, guid: 8e41f14c6552d48e6a7992aaecc808e4, type: 3}
     projectile: {fileID: 104838, guid: 384ff5ba7f5913448b7f811be7997aa6, type: 2}
     mana: 0
+  castDelay: 1
 --- !u!114 &11416004
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -349,17 +349,6 @@ MonoBehaviour:
     i15: 192
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 1
---- !u!114 &11456498
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 126378}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef82e3cb99c06b44385c05d0c220cdc6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &11462824
 MonoBehaviour:
   m_ObjectHideFlags: 1

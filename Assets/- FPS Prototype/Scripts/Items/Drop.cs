@@ -1,10 +1,11 @@
 ﻿using System;
 using FPSRPGPrototype.Interfaces;
 using UnityEngine;
+using UnityEngine.Networking;
 
 namespace FPSRPGPrototype.Items
 {
-    public class Drop : MonoBehaviour, IInteractive
+    public class Drop : NetworkBehaviour, IInteractive
     {
         public string itemId = "";
         public SpriteRenderer spriteRenderer;
@@ -25,9 +26,23 @@ namespace FPSRPGPrototype.Items
             get { return Actions.Take; }
         }
 
-        public void Use()
+        [Command]
+        private void CmdPickUpDrop()
+        {
+            RpcPickUpDrop();
+        }
+
+        [ClientRpc]
+        private void RpcPickUpDrop()
         {
             Debug.Log("Tried To use this");
+            Destroy(gameObject);
+        }
+
+
+        public void Use()
+        {
+            CmdPickUpDrop();
         }
     }
 }

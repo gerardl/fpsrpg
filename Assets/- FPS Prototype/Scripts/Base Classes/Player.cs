@@ -6,9 +6,13 @@ using UnityEngine.Networking;
 
 namespace FPSRPGPrototype.BaseClasses
 {
-    public class Player : NetworkBehaviour, IKillable, INetworkable
+    public class Player : NetworkBehaviour, IKillable
     {
         #region Properties
+
+        // Note:  Cannot do normal getters and setters due to 
+        //        SyncVar.  It will not mark a property as dirty if
+        //        updated indirectly through a get or set.
 
         [SyncVar]
         public string playerName;
@@ -39,54 +43,7 @@ namespace FPSRPGPrototype.BaseClasses
 
         public IInteractive InteractiveObject { get; private set; }
 
-        //public int MaxHealth
-        //{
-        //    get { return maxHealth; }
-        //    set
-        //    {
-        //        maxHealth = value;
-
-        //        if (Health > MaxHealth)
-        //            Health = MaxHealth;
-        //    }
-        //}
-
-        //public int MaxMana
-        //{
-        //    get { return maxMana; }
-        //    set
-        //    {
-        //        maxMana = value;
-
-        //        if (Mana > MaxMana)
-        //            Mana = MaxMana;
-        //    }
-        //}
-
-        //public int Health
-        //{
-        //    get { return health; }
-        //    set
-        //    {
-        //        health = Mathf.Clamp(value, 0, maxHealth);
-
-        //        if (health == 0)
-        //        {
-        //            KillPlayer();
-        //        }
-
-        //    }
-        //}
-
-        //public int Mana
-        //{
-        //    get { return mana; }
-        //    set
-        //    {
-        //        mana = Mathf.Clamp(value, 0, maxMana);
-        //    }
-        //}
-
+        
         #endregion
 
         #region Unity Methods
@@ -98,7 +55,6 @@ namespace FPSRPGPrototype.BaseClasses
 
         void Awake()
         {
-            //need to replace with persisted health (obv ;))
             maxHealth = testingHealth;
             health = testingHealth;
             maxMana = testingHealth;
@@ -147,6 +103,10 @@ namespace FPSRPGPrototype.BaseClasses
             if (Physics.Raycast(fpsCamera.transform.position, fpsCamera.transform.TransformDirection(Vector3.forward), out hit, 4))
             {
                 InteractiveObject = hit.collider.gameObject.GetComponent(typeof(IInteractive)) as IInteractive;
+
+                //temp
+                if (InteractiveObject != null)
+                    Debug.Log("I see something");
 
                 if (InteractiveObject != null && InteractiveObject.IsActive == false)
                     InteractiveObject = null;
@@ -205,7 +165,7 @@ namespace FPSRPGPrototype.BaseClasses
             throw new NotImplementedException();
         }
 
-        public void NetworkInitialize()
+        private void NetworkInitialize()
         {
             Debug.Log("begin initilization");
             this.name = "in network init";
