@@ -42,7 +42,7 @@ namespace FPSRPGPrototype.Items
         {
             //if (!isLocalPlayer)
             //    return;
-            player.Use(this.gameObject);
+            player.Use(gameObject);
         }
     }
 }

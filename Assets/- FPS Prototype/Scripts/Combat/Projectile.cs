@@ -32,7 +32,6 @@ namespace FPSRPGPrototype.Combat
         void Update()
         {
             Move();
-            //CheckHit();
         }
 
         protected virtual void Move()
@@ -41,28 +40,6 @@ namespace FPSRPGPrototype.Combat
             //rigidbody.velocity = Vector3.zero;
             //rigidbody.AddForce(Vector3.forward * speed * Time.deltaTime, ForceMode.VelocityChange);
             transform.Translate(Vector3.forward * speed * Time.deltaTime, Space.Self);
-        }
-
-        [ServerCallback]
-        protected virtual void CheckHit()
-        {
-            RaycastHit hit;
-
-            //if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 1f, Utilities.LayersHelper.DefaultEnemyPlayer))
-            //{
-            //    // looks to be hitting the child cylindar
-            //    IKillable killable = hit.collider.gameObject.GetComponent(typeof(IKillable)) as IKillable;
-
-            //    Debug.Log(hit.collider.gameObject.name);
-
-            //    if (killable != null)
-            //    {
-            //        Debug.Log("in killable");
-            //        killable.Attack(new AttackInformation(damage, hit.point, true, attackSource));
-            //    }
-
-            //    DestroyProjectile();
-            //}
         }
 
         [ServerCallback]

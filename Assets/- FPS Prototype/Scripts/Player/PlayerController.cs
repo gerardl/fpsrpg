@@ -176,14 +176,11 @@ namespace FPSRPGPrototype.Player
         private void NetworkInitialize()
         {
             Debug.Log("begin initilization");
-            this.name = "in network init";
-            this.playerName = "test in init";
             //characterController.enabled = true;
             fpsCamera.enabled = true;
             fpsCameraAudioListender.enabled = true;
             fpsController.enabled = true;
             //weaponController.enabled = true;
-
             Debug.Log("completed network initilization");
         }
 

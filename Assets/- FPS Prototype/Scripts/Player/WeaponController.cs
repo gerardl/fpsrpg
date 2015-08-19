@@ -87,7 +87,6 @@ namespace FPSRPGPrototype.Player
             //playerPosition.z += 1;
 
             Instantiate(tempRangedWeapon.projectile, playerPosition, player.fpsCamera.transform.rotation);
-            
         }
     }
 }
