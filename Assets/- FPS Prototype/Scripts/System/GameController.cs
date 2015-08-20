@@ -7,14 +7,14 @@ namespace FPSRPGPrototype.System
     {
         Game = 1,
         Inventory = 2,
-        Pause = 3,
-        Finish = 4,
-        Dialog = 5
+        Finish = 3,
+        Dialog = 4
     }
 
     public class GameController : Utilities.Singleton<GameController>
     {
         public event Action<GameStates> onStateChanged;
+        public GameObject respawnPoint;
 
         private GameStates gameState;
 
@@ -46,17 +46,17 @@ namespace FPSRPGPrototype.System
 
         void Update()
         {
-            //if (InputController.Escape)
-            //{
-            //    if (GameState == GameStates.Game)
-            //    {
-            //        GameState = GameStates.Pause;
-            //    }
-            //    else if (GameState == GameStates.Pause)
-            //    {
-            //        GameState = GameStates.Game;
-            //    }
-            //}
+            if (Player.InputController.Escape)
+            {
+                if (GameState == GameStates.Game)
+                {
+                    GameState = GameStates.Inventory;
+                }
+                else if (GameState == GameStates.Inventory)
+                {
+                    GameState = GameStates.Game;
+                }
+            }
 
             //if (InputController.Inventory)
             //{

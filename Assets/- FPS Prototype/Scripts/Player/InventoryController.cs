@@ -28,12 +28,12 @@ namespace FPSRPGPrototype.Player
         {
             if (System.GameController.Instance.GameState == System.GameStates.Game)
             {
-                if (System.InputController.Item1) UseItem(0);
-                if (System.InputController.Item2) UseItem(1);
-                if (System.InputController.Item3) UseItem(2);
-                if (System.InputController.Item4) UseItem(3);
-                if (System.InputController.Item5) UseItem(4);
-                if (System.InputController.Item6) UseItem(5);
+                if (InputController.Item1) UseItem(0);
+                if (InputController.Item2) UseItem(1);
+                if (InputController.Item3) UseItem(2);
+                if (InputController.Item4) UseItem(3);
+                if (InputController.Item5) UseItem(4);
+                if (InputController.Item6) UseItem(5);
             }
         }
 

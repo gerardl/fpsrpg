@@ -38,6 +38,7 @@ namespace FPSRPGPrototype.Player
         private int mana;
 
         public CharacterController characterController;
+        public InputController inputController;
         public Combat.DefenseConfig defense;
         public WeaponController weaponController;
         public InventoryController inventoryController;
@@ -137,6 +138,7 @@ namespace FPSRPGPrototype.Player
             Debug.Log("I'm dead now");
             Debug.Log("I'm dead now");
             Debug.Log("I'm dead now");
+            transform.position = GameController.Instance.respawnPoint.transform.position;
         }
 
 
@@ -180,6 +182,7 @@ namespace FPSRPGPrototype.Player
             fpsCamera.enabled = true;
             fpsCameraAudioListender.enabled = true;
             fpsController.enabled = true;
+            inputController.enabled = true;
             //weaponController.enabled = true;
             Debug.Log("completed network initilization");
         }

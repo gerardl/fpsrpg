@@ -13,6 +13,8 @@ GameObject:
   - 114: {fileID: 11460754}
   - 114: {fileID: 11471008}
   - 114: {fileID: 11463652}
+  - 114: {fileID: 11499348}
+  - 114: {fileID: 11416842}
   m_Layer: 0
   m_Name: System
   m_TagString: Untagged
@@ -32,6 +34,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!114 &11416842
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 150914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a753bf63dfa7fb4999b1cba4acd8a5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11460754
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -138,6 +151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bbad0541eb113f40baa10e72135bfe1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  respawnPoint: {fileID: 140702, guid: 70b069032df24054bae0cc0a697a1868, type: 2}
 --- !u!114 &11493080
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -149,6 +163,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9af35b40ee6b9c4fb275ab6554ae93e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &11499348
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 150914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 40
+    i1: 183
+    i2: 116
+    i3: 17
+    i4: 184
+    i5: 75
+    i6: 96
+    i7: 196
+    i8: 202
+    i9: 60
+    i10: 139
+    i11: 83
+    i12: 247
+    i13: 180
+    i14: 97
+    i15: 184
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -172,6 +218,10 @@ Prefab:
       propertyPath: m_UseSimulator
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: respawnPoint
+      value: 
+      objectReference: {fileID: 140702, guid: 70b069032df24054bae0cc0a697a1868, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 150914}

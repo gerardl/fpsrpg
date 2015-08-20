@@ -11,7 +11,7 @@ namespace FPSRPGPrototype.Player
         private PlayerController player;
         private Animator animator;
         private GameObject weaponModel;
-        private System.InputController inputController;
+        private InputController inputController;
 
         public float castDelay = .66f;
         private float lastCast;
@@ -29,7 +29,7 @@ namespace FPSRPGPrototype.Player
 
             //if (GameController.Instance.GameState != GameStates.Game) return;
             //animator.SetBool("IsAttack", System.InputController.Weapon);
-            if (System.InputController.Weapon && Time.time >= lastCast)
+            if (InputController.Weapon && Time.time >= lastCast)
             {
                 lastCast = Time.time + castDelay;
                 CmdShootProjectile();
