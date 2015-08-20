@@ -8,5 +8,6 @@ namespace FPSRPGPrototype.Interfaces
         void Attack(Combat.AttackInformation attackInformation);
 
         void Kill();
+
     }
 }
