@@ -1,10 +1,13 @@
 ﻿using UnityEngine;
 using FPSRPGPrototype.System;
+using UnityStandardAssets.Characters.FirstPerson;
 
 namespace FPSRPGPrototype.Player
 {
     public class InputController : MonoBehaviour
     {
+        FirstPersonController fpsController;
+
         public static float ForwardBack { get; private set; }
         public static float LeftRight { get; private set; }
         public static float Horizontal { get; private set; }
@@ -35,21 +38,31 @@ namespace FPSRPGPrototype.Player
 
         void Awake()
         {
+            fpsController = (FirstPersonController)gameObject.GetComponent(typeof(FirstPersonController));
         }
         
 
         void Update()
         {
             Escape = Input.GetKeyDown(KeyCode.Escape);
-            ForwardBack = 0;
-            LeftRight = 0;
-            if (Input.GetKey(KeyCode.W)) ForwardBack = 1;
-            if (Input.GetKey(KeyCode.S)) ForwardBack = -1;
-            if (Input.GetKey(KeyCode.A)) LeftRight = -1;
-            if (Input.GetKey(KeyCode.D)) LeftRight = 1;
+
+            // The FPS Controller will handle movement for now,
+            // I am leaving this here because we may want to implement
+            // "combos" or the like and would want to know if these are being
+            // pressed.
+            //
+            //ForwardBack = 0;
+            //LeftRight = 0;
+            //if (Input.GetKey(KeyCode.W)) ForwardBack = 1;
+            //if (Input.GetKey(KeyCode.S)) ForwardBack = -1;
+            //if (Input.GetKey(KeyCode.A)) LeftRight = -1;
+            //if (Input.GetKey(KeyCode.D)) LeftRight = 1;
+            //Horizontal = Input.GetAxis("Mouse X") * mouseSensitivity;
+            //Vertical = -Input.GetAxis("Mouse Y") * mouseSensitivity;
 
             if (GameController.Instance.GameState == GameStates.Game)
             {
+                fpsController.enabled = true;
                 Cursor.visible = false;
                 Cursor.lockState = CursorLockMode.Confined;
 
@@ -66,17 +79,10 @@ namespace FPSRPGPrototype.Player
             }
             else if (GameController.Instance.GameState == GameStates.Inventory)
             {
+                fpsController.enabled = false;
                 Cursor.visible = true;
                 Cursor.lockState = CursorLockMode.None;
             }
-
-            
-            //Horizontal = Input.GetAxis("Mouse X") * mouseSensitivity;
-            //Vertical = -Input.GetAxis("Mouse Y") * mouseSensitivity;
-
-            
-
-            
         }
     }
 }
