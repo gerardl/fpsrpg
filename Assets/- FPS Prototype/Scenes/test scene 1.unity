@@ -134,6 +134,22 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 11460754, guid: 28b77411b84b60c4ca3c8b53f7b461b8, type: 2}
+      propertyPath: showGUI
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11471008, guid: 28b77411b84b60c4ca3c8b53f7b461b8, type: 2}
+      propertyPath: m_CustomConfig
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11471008, guid: 28b77411b84b60c4ca3c8b53f7b461b8, type: 2}
+      propertyPath: m_UseSimulator
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11471008, guid: 28b77411b84b60c4ca3c8b53f7b461b8, type: 2}
+      propertyPath: m_OfflineScene
+      value: GuiTest
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11416842, guid: 28b77411b84b60c4ca3c8b53f7b461b8, type: 2}
     - {fileID: 11499348, guid: 28b77411b84b60c4ca3c8b53f7b461b8, type: 2}

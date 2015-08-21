@@ -6,4 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/- FPS Prototype/Scenes/GuiTest.unity
+  - enabled: 1
     path: Assets/- FPS Prototype/Scenes/test scene 1.unity

@@ -9,7 +9,7 @@ PlayerSettings:
   targetDevice: 2
   targetResolution: 0
   accelerometerFrequency: 60
-  companyName: DefaultCompany
+  companyName: TNT
   productName: Prototype FPSRPG
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
@@ -417,7 +417,7 @@ PlayerSettings:
   WebGL::template: APPLICATION:Default
   additionalIl2CppArgs::additionalIl2CppArgs: 
   firstStreamedSceneWithResources: 0
-  cloudProjectId: 
+  cloudProjectId: AA45A765-DA67-454F-BF88-7A854A244A21
   projectId: 
   projectName: 
   organizationId: 
