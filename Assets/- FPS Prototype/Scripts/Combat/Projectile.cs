@@ -11,17 +11,17 @@ namespace FPSRPGPrototype.Combat
         public float speed = 10;
         public GameObject corpse;
         public AttackInformation.AttackSources attackSource;
-        public Rigidbody rigidbody;
+        public Rigidbody _rigidbody;
 
         void Awake()
         {
             Collider c = GetComponent<Collider>();
-            rigidbody = GetComponent<Rigidbody>();
+            _rigidbody = GetComponent<Rigidbody>();
 
             c.material.frictionCombine = PhysicMaterialCombine.Minimum;
             c.material.dynamicFriction = 0.0f;
             c.material.staticFriction = 0.0f;
-            rigidbody.useGravity = false;
+            _rigidbody.useGravity = false;
         }
 
         void Start()
