@@ -943,6 +943,25 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1052379433}
+--- !u!1 &1283395114 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 179742, guid: 1195688b3a9262649b5b46895d2adbf8, type: 2}
+  m_PrefabInternal: {fileID: 1751823328}
+--- !u!114 &1283395115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1283395114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 227461547, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manager: {fileID: 0}
+  showGUI: 1
+  offsetX: 0
+  offsetY: 0
 --- !u!1 &1578912544
 GameObject:
   m_ObjectHideFlags: 0
@@ -1251,6 +1270,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 11465112, guid: 1195688b3a9262649b5b46895d2adbf8, type: 2}
+      propertyPath: networkHud
+      value: 
+      objectReference: {fileID: 1283395115}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1195688b3a9262649b5b46895d2adbf8, type: 2}
   m_IsPrefabParent: 0

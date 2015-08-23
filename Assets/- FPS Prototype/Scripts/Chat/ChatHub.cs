@@ -13,11 +13,19 @@ namespace FPSRPGPrototype.Chat
         // organize all of the ui / chat stuff
         // - glucas
 
+        static public ChatHub Instance { get { return _instance; } }
+        static protected ChatHub _instance;
+
         const short CHAT_MSG = MsgType.Highest + 1; // Unique message ID
         public Text chat;
         public InputField inputBox;
         public PlayerController _player;
         NetworkClient client;
+
+        void Awake()
+        {
+            _instance = this;
+        }
 
         void Start()
         {
@@ -42,11 +50,6 @@ namespace FPSRPGPrototype.Chat
             if (isServer)
             {
                 NetworkServer.SendToAll(CHAT_MSG, strMsg); // Send to all clients
-                foreach (var a in NetworkServer.objects)
-                {
-                    Debug.Log("key: " + a.Key + " value: " + a.Value);
-                }
-                //NetworkServer.connections.ForEach(f => Debug.Log("connid: " + f.connectionId + " isReady: " + f.isReady));
             }
             else if (client.isConnected)
             {

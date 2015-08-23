@@ -97,10 +97,7 @@ namespace FPSRPGPrototype.Player
         {
             if (!isLocalPlayer)
                 return;
-
-            if (GameController.Instance.GameState != GameStates.Game)
-                return;
-
+            
             // Search for interactive objects
             InteractiveObject = null;
 
@@ -175,6 +172,20 @@ namespace FPSRPGPrototype.Player
             NetworkServer.Destroy(gameObject);
         }
 
+        [Command]
+        private void CmdAddPlayer()
+        {
+            GameController.Instance.connectedPlayers.Add(this);
+        }
+
+        public void SendChatMessage(string message)
+        {
+            //if (!isLocalPlayer)
+            //    return;
+
+            Chat.ChatHub.Instance.SendChatMessage(playerName + ": " + message);
+        }
+
         private void NetworkInitialize()
         {
             Debug.Log("begin initilization");
@@ -185,7 +196,8 @@ namespace FPSRPGPrototype.Player
             inputController.enabled = true;
             // add method on game controller so i dont have to access
             // this list directly - glucas
-            GameController.Instance.connectedPlayers.Add(this);
+            CmdAddPlayer();
+            //GameController.Instance.connectedPlayers.Add(this);
             //weaponController.enabled = true;
             Debug.Log("completed network initilization");
         }
