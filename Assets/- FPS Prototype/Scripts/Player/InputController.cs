@@ -6,6 +6,15 @@ namespace FPSRPGPrototype.Player
 {
     public class InputController : MonoBehaviour
     {
+        public enum MenuStates
+        {
+            Game = 1,
+            Inventory = 2,
+            Dialog = 3
+        }
+
+        private MenuStates menuState;
+
         FirstPersonController fpsController;
 
         public static float ForwardBack { get; private set; }
@@ -39,6 +48,7 @@ namespace FPSRPGPrototype.Player
         void Awake()
         {
             fpsController = (FirstPersonController)gameObject.GetComponent(typeof(FirstPersonController));
+            menuState = MenuStates.Game;
         }
         
 
@@ -60,7 +70,7 @@ namespace FPSRPGPrototype.Player
             //Horizontal = Input.GetAxis("Mouse X") * mouseSensitivity;
             //Vertical = -Input.GetAxis("Mouse Y") * mouseSensitivity;
 
-            if (GameController.Instance.GameState == GameStates.Game)
+            if (menuState == MenuStates.Game)
             {
                 fpsController.enabled = true;
                 Cursor.visible = false;
@@ -77,12 +87,37 @@ namespace FPSRPGPrototype.Player
                 Item5 = Input.GetKeyDown(KeyCode.Alpha5);
                 Item6 = Input.GetKeyDown(KeyCode.Alpha6);
             }
-            else if (GameController.Instance.GameState == GameStates.Inventory)
+            else if (menuState == MenuStates.Inventory)
             {
                 fpsController.enabled = false;
                 Cursor.visible = true;
                 Cursor.lockState = CursorLockMode.None;
             }
+
+            // From GameController, needs to be refactored here (probably)
+            if (Escape)
+            {
+                if (menuState == MenuStates.Game)
+                {
+                    menuState = MenuStates.Inventory;
+                }
+                else if (menuState == MenuStates.Inventory)
+                {
+                    menuState = MenuStates.Game;
+                }
+            }
+
+            //if (InputController.Inventory)
+            //{
+            //    if (GameState == GameStates.Game)
+            //    {
+            //        GameState = GameStates.Inventory;
+            //    }
+            //    else if (GameState == GameStates.Inventory)
+            //    {
+            //        GameState = GameStates.Game;
+            //    }
+            //}
         }
     }
 }

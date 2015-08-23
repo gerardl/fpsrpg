@@ -56,7 +56,7 @@ namespace FPSRPGPrototype.Player
 
         public override void OnStartLocalPlayer()
         {
-            this.NetworkInitialize();
+            NetworkInitialize();
         }
 
         void Awake()
@@ -183,6 +183,9 @@ namespace FPSRPGPrototype.Player
             fpsCameraAudioListender.enabled = true;
             fpsController.enabled = true;
             inputController.enabled = true;
+            // add method on game controller so i dont have to access
+            // this list directly - glucas
+            GameController.Instance.connectedPlayers.Add(this);
             //weaponController.enabled = true;
             Debug.Log("completed network initilization");
         }

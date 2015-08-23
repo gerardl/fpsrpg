@@ -29,7 +29,7 @@ namespace FPSRPGPrototype.Combat
             //Destroy(gameObject, 5f);
         }
 
-        void Update()
+        void FixedUpdate()
         {
             Move();
         }
@@ -46,21 +46,21 @@ namespace FPSRPGPrototype.Combat
         void OnCollisionEnter(Collision collision)
         {
             Debug.Log("in OnCollisionEnter");
-            Debug.Log(collision);
+            //Debug.Log(collision);
 
             var killable1 = collision.collider.GetComponent(typeof(IKillable)) as IKillable;
-            var killable2 = collision.collider.gameObject.GetComponent(typeof(IKillable)) as IKillable;
+            //var killable2 = collision.collider.gameObject.GetComponent(typeof(IKillable)) as IKillable;
 
             if (killable1 != null)
             {
                 Debug.Log("in killable1");
                 killable1.Attack(new AttackInformation(damage, collision.contacts[0].point, true, attackSource));
             }
-            if (killable2 != null)
-            {
-                Debug.Log("in killable2");
-                killable2.Attack(new AttackInformation(damage, collision.contacts[0].point, true, attackSource));
-            }
+            //if (killable2 != null)
+            //{
+            //    Debug.Log("in killable2");
+            //    killable2.Attack(new AttackInformation(damage, collision.contacts[0].point, true, attackSource));
+            //}
 
             DestroyProjectile();
         }

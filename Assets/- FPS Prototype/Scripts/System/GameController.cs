@@ -1,22 +1,27 @@
 ﻿using UnityEngine;
+using UnityEngine.Networking;
 using System;
+using System.Collections.Generic;
 
 namespace FPSRPGPrototype.System
 {
     public enum GameStates
     {
         Game = 1,
-        Inventory = 2,
-        Finish = 3,
-        Dialog = 4
+        Finish = 2
     }
 
-    public class GameController : Utilities.Singleton<GameController>
+    public class GameController : NetworkBehaviour//, Utilities.Singleton<GameController>
     {
+        static public GameController Instance { get { return _instance; } }
+        static protected GameController _instance;
+
         public event Action<GameStates> onStateChanged;
         public GameObject respawnPoint;
 
         private GameStates gameState;
+
+        public List<Player.PlayerController> connectedPlayers;
 
         public GameStates GameState
         {
@@ -32,6 +37,10 @@ namespace FPSRPGPrototype.System
         void Awake()
         {
             onStateChanged += OnStateChanged;
+
+            connectedPlayers = new List<Player.PlayerController>();
+
+            _instance = this;
         }
 
         void Start()
@@ -46,29 +55,7 @@ namespace FPSRPGPrototype.System
 
         void Update()
         {
-            if (Player.InputController.Escape)
-            {
-                if (GameState == GameStates.Game)
-                {
-                    GameState = GameStates.Inventory;
-                }
-                else if (GameState == GameStates.Inventory)
-                {
-                    GameState = GameStates.Game;
-                }
-            }
-
-            //if (InputController.Inventory)
-            //{
-            //    if (GameState == GameStates.Game)
-            //    {
-            //        GameState = GameStates.Inventory;
-            //    }
-            //    else if (GameState == GameStates.Inventory)
-            //    {
-            //        GameState = GameStates.Game;
-            //    }
-            //}
+            
         }
 
         public void RestartGame()
